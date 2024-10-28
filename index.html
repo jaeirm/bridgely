@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bridgely HRIS</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h1>BRIDGELY</h1>
+      <p>HRIS solutions</p>
+      <ul class="side">
+      <ul class="side">
+        <li onclick="showModule('home', this)"><a href="#">Home</a></li>
+        <li onclick="showModule('profile', this)"><a href="#">Profile</a></li>
+        <li onclick="showModule('onboarding', this)"><a href="#">Onboarding</a></li>
+        <li onclick="showModule('organisation', this)"><a href="#">Organisation</a></li>
+        <li onclick="showModule('task-management', this)"><a href="#">Tasks</a></li>
+        <li onclick="showModule('attendance', this)"><a href="#">Attendance</a></li>
+        <li onclick="showModule('payroll', this)"><a href="#">Payroll</a></li>
+        <li onclick="showModule('performance', this)"><a href="#">Performance</a></li>
+        <li onclick="showModule('training', this)"><a href="#">Training</a></li>
+        <li onclick="showModule('compliance', this)"><a href="#">Compliance</a></li>
+        <li onclick="showModule('wellness', this)"><a href="#">Wellness</a></li>
+      </ul>
+
+      <!-- <div class="user-section">
+        <div class="user-avatar"></div>
+        <div class="user-info">
+          <p class="user-name">Jayaram</p>
+          <p class="user-role">Admin</p>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="main">
+      <!-- Profile Module -->
+      <div id="profile" class="module-content active">
+        <h2 class="module-title">Profile Management</h2>
+        <div class="profile-actions">
+          <button onclick="editProfile()">Edit Profile</button>
+          <button onclick="viewDocuments()">View Documents</button>
+          <button onclick="changePassword()">Change Password</button>
+        </div>
+        <div class="profile-section">
+          <h3>Basic Information</h3>
+          <p><strong>Full Name:</strong> Jayaram V</p>
+          <p><strong>Employee ID:</strong> EMP12345</p>
+          <p><strong>Position:</strong> Admin</p>
+          <p><strong>Joining Date:</strong> 01-Mar-2021</p>
+        </div>
+        <div class="profile-section">
+          <h3>Contact Information</h3>
+          <p><strong>Email:</strong> jayaram@example.com</p>
+          <p><strong>Phone:</strong> +91 9876543210</p>
+          <p><strong>Address:</strong> 1234 Street, City, Country</p>
+        </div>
+      </div>
+
+      <!-- Onboarding Module -->
+      <div id="onboarding" class="module-content">
+        <h2 class="module-title">Onboarding</h2>
+        <div class="onboarding-actions">
+          <button onclick="initiateOnboarding()">Initiate Onboarding</button>
+          <button onclick="viewOnboardingStatus()">View Status</button>
+        </div>
+        <h3>New Hire Checklist</h3>
+        <ul>
+          <li>Background Check - <span class="status completed">Completed</span></li>
+          <li>Document Verification - <span class="status pending">Pending</span></li>
+          <li>HR Orientation - <span class="status in-progress">In Progress</span></li>
+          <li>IT Setup - <span class="status not-started">Not Started</span></li>
+        </ul>
+      </div>
+
+      <!-- Organisation Module -->
+      <div id="organisation" class="module-content">
+        <h2 class="module-title">Organisation Structure</h2>
+        <div class="organisation-actions">
+          <button onclick="viewOrgChart()">View Org Chart</button>
+          <button onclick="manageDepartments()">Manage Departments</button>
+        </div>
+        <h3>Departments</h3>
+        <table>
+          <tr>
+            <th>Department</th>
+            <th>Head</th>
+            <th>Number of Employees</th>
+          </tr>
+          <tr>
+            <td>HR</td>
+            <td>Anita Sharma</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Finance</td>
+            <td>Rajiv Kumar</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>Sales</td>
+            <td>Sara Lee</td>
+            <td>30</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Attendance Module -->
+      <div id="attendance" class="module-content">
+        <h2 class="module-title">Attendance Management</h2>
+        <div class="attendance-actions">
+          <button onclick="markAttendance()">Mark Attendance</button>
+          <button onclick="viewMonthlyReport()">Monthly Report</button>
+        </div>
+        <h3>Today's Attendance</h3>
+        <p>Present: 235 | Absent: 15 | On Leave: 5</p>
+        <h3>Attendance Summary</h3>
+        <p>Average Attendance Rate: 98%</p>
+      </div>
+
+      <!-- Payroll Module -->
+      <div id="payroll" class="module-content">
+        <h2 class="module-title">Payroll Management</h2>
+        <div class="payroll-actions">
+          <button onclick="processPayroll()">Process Payroll</button>
+          <button onclick="viewPayslips()">View Payslips</button>
+        </div>
+        <h3>Payroll Overview</h3>
+        <p>Monthly Payroll Expense: ₹25,00,000</p>
+        <h3>Pending Approvals</h3>
+        <ul>
+          <li>Overtime Approvals - 5 requests pending</li>
+          <li>Salary Adjustments - 3 requests pending</li>
+        </ul>
+      </div>
+
+      <!-- Performance Module -->
+      <div id="performance" class="module-content">
+        <h2 class="module-title">Performance Management</h2>
+        <div class="performance-actions">
+          <button onclick="scheduleReview()">Schedule Review</button>
+          <button onclick="viewReports()">View Reports</button>
+        </div>
+        <h3>Upcoming Reviews</h3>
+        <p>50 reviews scheduled for the month</p>
+        <h3>Performance Metrics</h3>
+        <p>Average Rating: 4.5/5</p>
+      </div>
+
+      <!-- Training Module -->
+      <div id="training" class="module-content">
+        <h2 class="module-title">Training & Development</h2>
+        <div class="training-actions">
+          <button onclick="enrollInCourse()">Enroll in Course</button>
+          <button onclick="viewCourses()">View Courses</button>
+        </div>
+        <h3>Active Training Programs</h3>
+        <ul>
+          <li>Project Management - 40 participants</li>
+          <li>Software Skills - 30 participants</li>
+        </ul>
+      </div>
+
+      <!-- Compliance Module -->
+      <div id="compliance" class="module-content">
+        <h2 class="module-title">Compliance Management</h2>
+        <div class="compliance-actions">
+          <button onclick="checkCompliance()">Check Compliance</button>
+          <button onclick="uploadPolicy()">Upload Policy</button>
+        </div>
+        <h3>Compliance Overview</h3>
+        <p>Overall Compliance Rate: 95%</p>
+        <h3>Pending Tasks</h3>
+        <ul>
+          <li>Annual Policy Review - Due Next Week</li>
+          <li>Data Security Training - 5 sessions remaining</li>
+        </ul>
+      </div>
+          <!-- Task Management Module -->
+<div id="task-management" class="module-content">
+  <h2 class="module-title">Task Management</h2>
+  <div class="task-actions">
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="viewTasks()">View Tasks</button>
+  </div>
+  <h3>Current Tasks</h3>
+  <ul id="task-list">
+    <li>Review employee documents - <span class="status pending">Pending</span></li>
+    <li>Prepare for HR meeting - <span class="status completed">Completed</span></li>
+    <li>Update payroll information - <span class="status in-progress">In Progress</span></li>
+    <li>Conduct training session - <span class="status not-started">Not Started</span></li>
+  </ul>
+</div>
+<!-- Home Screen Module -->
+<div id="home" class="module-content active">
+  <h2 class="module-title">Welcome to Bridgely HRIS</h2>
+  <p>Your all-in-one solution for managing human resources effectively. Below are the available modules:</p>
+  <div class="feature-list">
+    <div class="feature-item">
+      <h3>Profile Management</h3>
+      <p>Manage employee profiles, view documents, and update contact information.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Onboarding</h3>
+      <p>Streamline the onboarding process for new hires with checklists and status tracking.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Organisation Structure</h3>
+      <p>View and manage the organizational hierarchy, departments, and employee counts.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Attendance Management</h3>
+      <p>Track employee attendance, manage leaves, and generate attendance reports.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Payroll Management</h3>
+      <p>Process payroll, view payslips, and manage salary adjustments.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Performance Management</h3>
+      <p>Schedule performance reviews, view reports, and track employee ratings.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Training & Development</h3>
+      <p>Enroll employees in training programs and view available courses.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Compliance Management</h3>
+      <p>Ensure compliance with regulations and manage policy uploads.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Employee Wellness</h3>
+      <p>Join wellness programs, track participation, and view wellness statistics.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Task Management</h3>
+      <p>Manage tasks, track progress, and ensure timely completion of activities.</p>
+    </div>
+  </div>
+</div>
+
+      <!-- Wellness Module -->
+      <div id="wellness" class="module-content">
+        <h2 class="module-title">Employee Wellness</h2>
+        <div class="wellness-actions">
+          <button onclick="joinWellnessProgram()">Join Program</button>
+          <button onclick="viewWellnessStats()">View Wellness Stats</button>
+        </div>
+        <h3>Current Wellness Programs</h3>
+        <ul>
+          <li>Yoga and Meditation - 50 participants</li>
+          <li>Nutrition Counseling - 30 participants</li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div id="chatbot" class="chatbot-container">
+      <div class="chatbot-header">
+        <h3>Chatbot</h3>
+        <button onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="message bot-message">Hello! How can I assist you today?</div>
+      </div>
+      <input type="text" id="user-input" placeholder="Type your message..." onkeypress="sendMessage(event)">
+    </div>
+    
+  </div>
+
+</body>
+
+<script>
+  function showModule(moduleId, el) {
+    // Hide all modules
+    document.querySelectorAll('.module-content').forEach(module => {
+      module.classList.remove('active');
+    });
+
+    // Show the selected module
+    document.getElementById(moduleId).classList.add('active');
+
+    // Remove active class from all sidebar items
+    document.querySelectorAll('.sidebar ul li').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    // Add active class to the clicked sidebar item
+    el.classList.add('active');
+  }
+  function addTask() {
+    const task = prompt("Enter the new task:");
+    if (task) {
+        const taskList = document.getElementById('task-list');
+        const newTask = document.createElement('li');
+        newTask.textContent = task + " - ";
+        
+        const status = document.createElement('span');
+        status.textContent = "Pending"; // Default status for new tasks
+        status.classList.add('status', 'pending');
+        newTask.appendChild(status);
+
+        taskList.appendChild(newTask);
+    }
+}
+
+function viewTasks() {
+    alert("View your tasks in the list below!");
+    // You can expand this function to show more details or open a new page if needed
+}
+
+</script>
